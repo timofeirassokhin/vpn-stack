@@ -1,0 +1,30 @@
+# Приватные ключи и PSK — НИКОГДА не коммитить
+*.key
+*.psk
+*private*
+
+# Бэкапы с реальными ключами
+vpn-stack_*.tar.gz
+*.bak
+*.bak-*
+
+# Секреты в .env
+.env
+.env.local
+secrets/
+
+# Локальные заметки / диагностические дампы
+*.log
+*.out
+scratch/
+
+# OS мусор
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.iml

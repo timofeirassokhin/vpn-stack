@@ -1,0 +1,16 @@
+# routes.batch — список РФ-подсетей для split-routing
+#
+# 33 486 строк. Генерируется скриптом (например, скачиванием списка RIPE/Geolitecountry)
+# и устанавливается в table wg_user (id 100) на tr-vps.
+#
+# Файл НЕ кладётся в репозиторий (слишком большой), но регенерируется командами:
+#   curl -s https://stat.ripe.net/data/country-resource-list/data.json?resource=RU \
+#     | jq -r '.data.resources.ipv4[]' > routes.batch
+#   echo "default via 186.246.1.1 dev eth0" >> routes.batch
+#   ip route replace $(awk '{print "nexthop via 186.246.1.1 dev eth0 weight 1\n"}' routes.batch)
+#
+# PostUp в awg0.conf НЕ должен перезаписывать routes.batch — он применяется
+# отдельным systemd-юнитом (см. docs/known-issues.md).
+
+# Этот файл — заглушка. В репо лежит ТОЛЬКО этот README + инструкции по регенерации.
+# Полный файл НЕ коммитим (он не содержит секретов, но 33 486 строк — overkill для git-истории).
